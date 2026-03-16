@@ -1,0 +1,51 @@
+# ═══════════════════════════════════════════════════════
+#  Kiplaa Bot — config.yml  (v2.0 optimised)
+#  These settings are merged with your .env on startup.
+#  You can override any value here.
+# ═══════════════════════════════════════════════════════
+
+# ── Database Performance ─────────────────────────────────
+DB_BATCH_SIZE: 600              # ⚡ Writes 600 rows per batch (fewer disk ops)
+DB_FLUSH_INTERVAL: "2000"       # ⚡ Saves to disk every 2 s (was 5 s)
+DB_CACHE_MAX_BYTES: 268435456   # ⚡ 256 MB RAM cache (was 128 MB)
+DB_USE_WAL: true                # ⚡ WAL mode — reads don't block writes
+DB_BUSY_TIMEOUT_MS: 8000        # ⚡ Fast-fail on DB lock (was 15 s)
+
+# ── Alive Command Images ─────────────────────────────────
+#  Bot picks a random image when someone runs .alive
+ALIVE_IMAGES:
+  - "https://t-ct.org/media/alive.jpg"
+  - "https://t-ct.org/media/alive1.jpg"
+  - "https://t-ct.org/media/alive2.jpg"
+  - "https://t-ct.org/media/alive3.jpg"
+  - "https://t-ct.org/media/alive4.jpg"
+  - "https://t-ct.org/media/alive5.jpg"
+  - "https://t-ct.org/media/alive6.jpg"
+  - "https://t-ct.org/media/alive7.jpg"
+  - "https://t-ct.org/media/alive8.jpg"
+  - "https://t-ct.org/media/alive9.jpg"
+  - "https://t-ct.org/media/alive10.jpg"
+  - "https://t-ct.org/media/alive11.jpg"
+
+# ── Welcome Images ───────────────────────────────────────
+#  Sent to new group members when they join
+WELCOME_IMAGES:
+  - "https://t-ct.org/media/welcome1.jpg"
+  - "https://t-ct.org/media/welcome2.jpg"
+  - "https://t-ct.org/media/welcome3.jpg"
+  - "https://t-ct.org/media/welcome4.jpg"
+  - "https://t-ct.org/media/welcome5.jpg"
+  - "https://t-ct.org/media/welcome6.jpg"
+  - "https://t-ct.org/media/welcome7.jpg"
+  - "https://t-ct.org/media/welcome8.jpg"
+  - "https://t-ct.org/media/welcome9.jpg"
+
+# ── Group Lock / Warning System ──────────────────────────
+LOCK_SYSTEM:
+  MAX_WARNS: 3              # Warns before action is taken on a member
+  SHOW_TRIGGER_IN_REASON: true  # Show what triggered the warning
+  DELETE_WARN_AFTER: 3     # Auto-clear warnings after N days
+
+#dashboard:
+#  user: admin
+#  password: tct-99

@@ -1,0 +1,92 @@
+{
+  "name": "kiplaa",
+  "description": "Kiplaa — A fast WhatsApp bot built with Go (modern launcher v2.0)",
+  "keywords": ["kiplaa", "go", "whatsapp", "bot", "automation"],
+  "repository": "https://github.com/kogo198/kiplaa",
+  "stack": "heroku-24",
+
+  "env": {
+    "SESSION_ID": {
+      "description": "Your WhatsApp Session ID — get it at https://i-tct.com/pair/qr (REQUIRED)",
+      "value": "",
+      "required": true
+    },
+    "PREFIX": {
+      "description": "Command prefix symbol. Use '.' for .ping, '!' for !ping, or leave empty for no prefix.",
+      "value": ".",
+      "required": false
+    },
+    "TIMEZONE": {
+      "description": "Your local timezone. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+      "value": "Africa/Nairobi",
+      "required": false
+    },
+    "FILTER_NOISE_LOGS": {
+      "description": "Hide internal/noisy log messages. Recommended: true",
+      "value": "true",
+      "required": false
+    },
+    "DB_BATCH_SIZE": {
+      "description": "⚡ Records per write batch — higher = fewer disk operations (default: 600)",
+      "value": "600",
+      "required": false
+    },
+    "DB_FLUSH_INTERVAL": {
+      "description": "⚡ How often to flush DB to disk in milliseconds (default: 2000)",
+      "value": "2000",
+      "required": false
+    },
+    "DB_CACHE_MAX_BYTES": {
+      "description": "⚡ Max RAM for DB cache in bytes. 268435456 = 256 MB (default: 268435456)",
+      "value": "268435456",
+      "required": false
+    },
+    "DB_BUSY_TIMEOUT_MS": {
+      "description": "⚡ Timeout when DB is busy/locked in milliseconds (default: 8000)",
+      "value": "8000",
+      "required": false
+    },
+    "DASHBOARD_USER": {
+      "description": "Username for the web dashboard",
+      "value": "admin",
+      "required": false
+    },
+    "DASHBOARD_PASS": {
+      "description": "Password for the web dashboard",
+      "value": "",
+      "required": false
+    },
+    "CLOUDINARY_CLOUD_NAME": {
+      "description": "Cloudinary cloud name for image hosting (optional)",
+      "value": "",
+      "required": false
+    },
+    "CLOUDINARY_API_KEY": {
+      "description": "Cloudinary API key (optional)",
+      "value": "",
+      "required": false
+    },
+    "CLOUDINARY_API_SECRET": {
+      "description": "Cloudinary API secret (optional)",
+      "value": "",
+      "required": false
+    },
+    "OPENWEATHER_API_KEY": {
+      "description": "OpenWeatherMap API key — enables the .weather command (optional)",
+      "value": "",
+      "required": false
+    },
+    "MISTRAL_API_KEY": {
+      "description": "Mistral AI API key — enables AI chat features (optional)",
+      "value": "",
+      "required": false
+    }
+  },
+
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}

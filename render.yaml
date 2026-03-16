@@ -1,0 +1,63 @@
+version: "1"
+
+# ═══════════════════════════════════════════════════════
+#  Kiplaa WhatsApp Bot — Render.com Deployment (v2.0)
+#  Deploy at: https://github.com/kogo198/kiplaa
+# ═══════════════════════════════════════════════════════
+
+services:
+  - type: web
+    name: kiplaa-whatsapp-bot
+    runtime: docker
+    plan: free
+    region: virginia             # Options: virginia, oregon, frankfurt, singapore
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    autoDeployTrigger: commit    # Auto-deploy on every git push
+
+    # ── Health check ──────────────────────────────────
+    healthCheckPath: /health
+
+    # ── Environment variables ──────────────────────────
+    envVars:
+      # Required
+      - key: SESSION_ID
+        sync: false              # Must be set manually in Render dashboard
+
+      # Bot behaviour
+      - key: TIMEZONE
+        sync: false
+      - key: PREFIX
+        sync: false
+
+      # Dashboard access
+      - key: DASHBOARD_USER
+        sync: false
+      - key: DASHBOARD_PASS
+        sync: false
+
+      # Performance (pre-set with optimised defaults)
+      - key: DB_BATCH_SIZE
+        value: "600"
+      - key: DB_FLUSH_INTERVAL
+        value: "2000"
+      - key: DB_CACHE_MAX_BYTES
+        value: "268435456"
+      - key: DB_BUSY_TIMEOUT_MS
+        value: "8000"
+
+      # Server port (required by Render for web services)
+      - key: server_port
+        value: "3010"
+
+      # Optional integrations
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: MISTRAL_API_KEY
+        sync: false
